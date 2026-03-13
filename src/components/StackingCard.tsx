@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -39,7 +39,9 @@ const StackingSlider = () => {
     () => {
       const cardsElements = gsap.utils.toArray<HTMLElement>(".card-item");
 
-      gsap.set(cardsElements, (index) => ({ y: index === 0 ? 0 : "100vh" }));
+      gsap.set(cardsElements, (index: number) => ({
+        y: index === 0 ? 0 : "100vh",
+      }));
 
       const tl = gsap.timeline({
         scrollTrigger: {
