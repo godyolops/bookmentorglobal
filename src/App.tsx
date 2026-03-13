@@ -43,7 +43,7 @@ const ProjectCard: React.FC<Project> = ({ title, category, image }) => (
 const ServiceCard: React.FC<ServiceProps> = ({ icon: Icon, title, desc }) => (
   <motion.div
     whileHover={{ y: -12 }}
-    className="p-12 border border-subtle rounded-[2.5rem] bg-surface shadow-sm hover:shadow-2xl transition-all group"
+    className="p-6 md:p-12 border border-subtle rounded-[2rem] md:rounded-[2.5rem] bg-surface shadow-sm hover:shadow-2xl transition-all group"
   >
     <div className="w-16 h-16 bg-icon-chip text-purple-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-500">
       <Icon size={32} />
@@ -88,8 +88,8 @@ const App: React.FC = () => {
       {/* Portfolio Grid */}
       <section className="pb-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-20">
-            <h2 className="text-5xl md:text-7xl font-black mb-6">
+          <div className="mb-10 md:mb-20">
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black mb-6">
               Author Success Stories
             </h2>
             <div className="h-2 w-24 bg-purple-600 rounded-full" />
@@ -105,7 +105,7 @@ const App: React.FC = () => {
       {/* Services */}
       <section className="pb-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             <ServiceCard
               icon={Target}
               title="Author Positioning"
@@ -126,12 +126,12 @@ const App: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-32 px-6 text-center border-t border-subtle">
-        <h2 className="text-6xl md:text-8xl font-black mb-12">
+      <footer className="py-16 md:py-32 px-6 text-center border-t border-subtle">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-8 md:mb-12">
           Ready to publish <br />{" "}
           <span className="text-purple-600 underline">with confidence</span>.
         </h2>
-        <button className="bg-contrast text-contrast px-16 py-8 rounded-full font-black text-xl hover:bg-purple-600 hover:text-white transition-all">
+        <button className="bg-contrast text-contrast px-8 py-5 md:px-16 md:py-8 rounded-full font-black text-base md:text-xl hover:bg-purple-600 hover:text-white transition-all">
           BOOK A MENTOR CALL
         </button>
       </footer>
