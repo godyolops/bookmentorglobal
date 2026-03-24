@@ -202,7 +202,7 @@ const BookCallPage = () => {
                   </span>
                   <input
                     type="text"
-                    placeholder="Jane Smith"
+                    placeholder="Enter your full name"
                     className={`${inputBase} ${errors.name ? inputError : inputValid}`}
                     {...register("name", { required: "Full name is required" })}
                   />
@@ -217,7 +217,7 @@ const BookCallPage = () => {
                   </span>
                   <input
                     type="email"
-                    placeholder="jane@email.com"
+                    placeholder="your@email.com"
                     className={`${inputBase} ${errors.email ? inputError : inputValid}`}
                     {...register("email", {
                       required: "Email address is required",
