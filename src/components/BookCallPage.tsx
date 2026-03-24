@@ -38,14 +38,14 @@ const GoalSelect = ({
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
+      if (open && ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false);
         field.onBlur();
       }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, [field]);
+  }, [field, open]);
 
   return (
     <div ref={ref} className="relative">
