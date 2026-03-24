@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import SiteFooter from "./SiteFooter";
 import NavBar from "./NavBar";
-
 const Layout = () => {
   const { pathname } = useLocation();
 

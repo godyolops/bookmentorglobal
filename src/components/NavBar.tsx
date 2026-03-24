@@ -6,6 +6,7 @@ import { Menu, Moon, Sun } from "lucide-react";
 const NavBar = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useDarkMode();
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const NavBar = () => {
     <nav className="fixed top-0 w-full z-[100] px-4 md:px-8 py-4 transition-all duration-300">
       <div
         className={`
-          max-w-[98%] mx-auto flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500
+          max-w-[98%] mx-auto flex items-center justify-between px-4 md:px-6 py-2 md:py-3 rounded-full transition-all duration-500
           ${
             isScrolled
               ? "bg-nav-glass backdrop-blur-xl border border-subtle shadow-xl"
@@ -31,24 +32,24 @@ const NavBar = () => {
         {/* Logo */}
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-1 font-bold text-xl text-fg hover:opacity-80 transition-opacity"
+          className="flex items-center gap-1 font-bold text-lg md:text-xl text-fg hover:opacity-80 transition-opacity whitespace-nowrap"
         >
           <span>BookMentor</span>
           <span className="text-[#9d48f0]">Global</span>
         </button>
 
         {/* Action Items */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <button
             onClick={() => navigate("/book-a-call")}
-            className="hidden md:block bg-purple-600 hover:bg-purple-700 text-white text-[14px] font-bold px-6 py-3 rounded-full transition-all uppercase"
+            className="hidden md:block bg-purple-600 hover:bg-purple-700 text-white text-[14px] font-bold px-6 py-3 rounded-full transition-all uppercase whitespace-nowrap"
           >
             Get Started
           </button>
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-subtle bg-surface cursor-pointer hover:bg-purple-600/10 transition-colors"
+            className="p-2 rounded-full border border-subtle bg-surface cursor-pointer hover:bg-purple-600/10 transition-colors flex-shrink-0"
           >
             {theme === "dark" ? (
               <Sun size={18} className="text-fg" />
@@ -57,11 +58,29 @@ const NavBar = () => {
             )}
           </button>
 
-          <div className="cursor-pointer text-fg">
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden cursor-pointer text-fg hover:opacity-80 transition-opacity"
+          >
             <Menu size={24} />
-          </div>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden max-w-[98%] mx-auto bg-nav-glass backdrop-blur-xl rounded-b-lg shadow-xl animate-in fade-in duration-200 overflow-hidden">
+          <button
+            onClick={() => {
+              navigate("/book-a-call");
+              setIsMobileMenuOpen(false);
+            }}
+            className="w-full bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 transition-all font-bold uppercase"
+          >
+            Get Started
+          </button>
+        </div>
+      )}
     </nav>
   );
 };
