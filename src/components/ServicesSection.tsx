@@ -8,23 +8,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 const cards = [
   {
-    title: "Author Positioning Lab",
+    title: "Social Strategy & Positioning",
     description:
-      "Clarify your audience, message, and category so your book stands out before launch day.",
+      "Define your audience, content pillars, and channel mix so every post supports measurable brand goals.",
     color: "#C084FC",
     img: "https://images.unsplash.com/photo-1546776310-eef45dd6d63c?w=800",
   },
   {
-    title: "Manuscript & Market",
+    title: "Content Planning & Production",
     description:
-      "Bridge writing and promoting strategy with practical mentoring from draft to distribution.",
+      "Build monthly content calendars, high-converting creatives, and short-form videos tailored to each platform.",
     color: "#A855F7",
     img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800",
   },
   {
-    title: "Launch & PR Engine",
+    title: "Paid Social & Growth",
     description:
-      "Execute a launch plan with content, outreach, and visibility tactics tailored to your genre.",
+      "Scale reach and leads with campaign testing, retargeting funnels, and weekly performance optimization.",
     color: "#94a3b8",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
   },
@@ -114,7 +114,7 @@ const StackingSlider = () => {
                 </h2>
 
                 <div className="flex flex-wrap gap-2">
-                  {["Mentoring", "Promoting", "Visibility"].map((tag) => (
+                  {["Content", "Engagement", "Conversion"].map((tag) => (
                     <span
                       key={tag}
                       className="px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white text-[10px] font-bold"

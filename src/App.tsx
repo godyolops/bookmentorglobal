@@ -1,10 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Target, Mail, Palette, ExternalLink } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import MarqueeHero from "./components/MarqueeHero";
-import Stats from "./components/Stats";
-import StackingCards from "./components/StackingCard";
-import NavBar from "./components/NavBar";
+import HeroSection from "./components/HeroSection";
+import StatsSection from "./components/StatsSection";
+import ServicesSection from "./components/ServicesSection";
 
 // --- Types ---
 interface ServiceProps {
@@ -57,6 +57,8 @@ const ServiceCard: React.FC<ServiceProps> = ({ icon: Icon, title, desc }) => (
 );
 
 const App: React.FC = () => {
+  const navigate = useNavigate();
+
   const projects: Project[] = [
     {
       title: "The Debut Blueprint",
@@ -79,11 +81,10 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen transition-colors duration-500 selection:bg-purple-600 selection:text-white overflow-x-hidden">
-      <NavBar />
-      <MarqueeHero />
-      <Stats />
-      <StackingCards />
+    <div>
+      <HeroSection />
+      <StatsSection />
+      <ServicesSection />
 
       {/* Portfolio Grid */}
       <section className="pb-32 px-6">
@@ -131,7 +132,10 @@ const App: React.FC = () => {
           Ready to promote <br />{" "}
           <span className="text-purple-600 underline">with confidence</span>.
         </h2>
-        <button className="bg-contrast text-contrast px-8 py-5 md:px-16 md:py-8 rounded-full font-black text-base md:text-xl hover:bg-purple-600 hover:text-white transition-all">
+        <button
+          onClick={() => navigate("/book-a-call")}
+          className="bg-contrast text-contrast px-8 py-5 md:px-16 md:py-8 rounded-full font-black text-base md:text-xl hover:bg-purple-600 hover:text-white transition-all"
+        >
           BOOK A MENTOR CALL
         </button>
       </footer>

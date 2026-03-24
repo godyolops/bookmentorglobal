@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { Menu, Moon, Sun } from "lucide-react";
 
 const NavBar = () => {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useDarkMode();
 
@@ -27,14 +29,20 @@ const NavBar = () => {
         `}
       >
         {/* Logo */}
-        <div className="flex items-center gap-1 font-bold text-xl text-fg">
+        <button
+          onClick={() => navigate("/")}
+          className="flex items-center gap-1 font-bold text-xl text-fg hover:opacity-80 transition-opacity"
+        >
           <span>BookMentor</span>
           <span className="text-[#9d48f0]">Global</span>
-        </div>
+        </button>
 
         {/* Action Items */}
         <div className="flex items-center gap-4">
-          <button className="hidden md:block bg-purple-600 hover:bg-purple-700 text-white text-[14px] font-bold px-6 py-3 rounded-full transition-all uppercase">
+          <button
+            onClick={() => navigate("/book-a-call")}
+            className="hidden md:block bg-purple-600 hover:bg-purple-700 text-white text-[14px] font-bold px-6 py-3 rounded-full transition-all uppercase"
+          >
             Get Started
           </button>
 
