@@ -24,17 +24,17 @@ const ProjectCard: React.FC<Project> = ({ title, category, image }) => (
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-card cursor-pointer"
+    className="group relative aspect-[16/11] sm:aspect-[4/5] overflow-hidden rounded-2xl sm:rounded-3xl bg-card cursor-pointer"
   >
     <img
       src={image}
       alt={title}
       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 sm:p-8">
       <span className="text-purple-400 text-xs font-bold mb-2">{category}</span>
-      <h3 className="text-white text-3xl font-black flex items-center gap-3">
-        {title} <ExternalLink size={20} />
+      <h3 className="text-white text-xl sm:text-3xl font-black flex items-center gap-2 sm:gap-3">
+        {title} <ExternalLink size={18} className="sm:w-5 sm:h-5" />
       </h3>
     </div>
   </motion.div>
