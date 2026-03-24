@@ -100,12 +100,12 @@ const StackingSlider = () => {
             style={{ zIndex: i }}
           >
             <div
-              className="relative w-full max-w-7xl h-[550px] md:h-[650px] rounded-[3.5rem] p-10 md:p-20 flex flex-col md:flex-row items-center justify-between shadow-2xl border border-white/10 overflow-visible"
+              className="relative w-full max-w-7xl h-[500px] md:h-[650px] rounded-[2rem] md:rounded-[3.5rem] p-6 md:p-20 flex flex-col md:flex-row items-center justify-between shadow-2xl border border-white/10 overflow-visible"
               style={{ backgroundColor: card.color }}
             >
               {/* Content Side */}
-              <div className="flex-1 space-y-8">
-                <h2 className="text-4xl md:text-6xl font-black italic text-white">
+              <div className="flex-1 space-y-5 md:space-y-8">
+                <h2 className="text-2xl md:text-6xl font-black italic text-white leading-tight">
                   {card.title.split(" & ").map((line, idx) => (
                     <span key={idx} className="block">
                       {line}
@@ -117,29 +117,29 @@ const StackingSlider = () => {
                   {["Content", "Engagement", "Conversion"].map((tag) => (
                     <span
                       key={tag}
-                      className="px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white text-[10px] font-bold"
+                      className="px-3 md:px-5 py-1.5 md:py-2 rounded-full border border-white/20 bg-white/10 text-white text-[9px] md:text-[10px] font-bold"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <p className="max-w-md text-white/90 text-lg font-medium leading-relaxed">
+                <p className="max-w-md text-white/90 text-sm md:text-lg font-medium leading-relaxed">
                   {card.description}
                 </p>
               </div>
 
               {/* Image Side */}
-              <div className="relative flex-1 flex justify-end items-center mt-10 md:mt-0 h-full">
+              <div className="relative flex-1 flex justify-end items-center mt-5 md:mt-0 h-full">
                 <div className="relative group">
                   <img
                     src={card.img}
                     alt={card.title}
-                    className="w-full max-w-[450px] aspect-square object-cover rounded-[2.5rem] shadow-2xl rotate-2 group-hover:rotate-0 transition-transform duration-700"
+                    className="w-full max-w-[220px] md:max-w-[450px] aspect-square object-cover rounded-[1.25rem] md:rounded-[2.5rem] shadow-2xl rotate-2 group-hover:rotate-0 transition-transform duration-700"
                   />
                   {/* Pinned Arrow - Top Right of Image */}
-                  <button className="absolute -top-6 -right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-2xl hover:scale-110 transition-transform z-30">
-                    <ArrowUpRight size={32} />
+                  <button className="absolute -top-3 -right-3 md:-top-6 md:-right-6 w-9 h-9 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center text-black shadow-2xl hover:scale-110 transition-transform z-30">
+                    <ArrowUpRight size={18} className="md:w-8 md:h-8" />
                   </button>
                 </div>
               </div>
