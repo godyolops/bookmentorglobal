@@ -17,7 +17,7 @@ const cards = [
   {
     title: "Manuscript & Market",
     description:
-      "Bridge writing and publishing strategy with practical mentoring from draft to distribution.",
+      "Bridge writing and promoting strategy with practical mentoring from draft to distribution.",
     color: "#A855F7",
     img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800",
   },
@@ -114,7 +114,7 @@ const StackingSlider = () => {
                 </h2>
 
                 <div className="flex flex-wrap gap-2">
-                  {["Mentoring", "Publishing", "Visibility"].map((tag) => (
+                  {["Mentoring", "Promoting", "Visibility"].map((tag) => (
                     <span
                       key={tag}
                       className="px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white text-[10px] font-bold"

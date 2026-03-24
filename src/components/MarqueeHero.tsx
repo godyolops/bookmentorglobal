@@ -2,7 +2,7 @@ import { motion, type Variants } from "framer-motion";
 
 const words = [
   "editing",
-  "publishing",
+  "promoting",
   "launch",
   "positioning",
   "visibility",
@@ -33,7 +33,7 @@ const HeroSwitcher = () => {
         {/* Row 1: Heading + Side-Scrolling Pill */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-3 w-full">
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[9rem] leading-[1.05] text-center text-fg">
-            Book Mentor,
+            BookMentor,
           </h1>
           <div className="inline-flex items-center rounded-full border border-purple-600/20 bg-icon-chip text-fg text-2xl sm:text-3xl md:text-5xl font-medium relative h-[40px] sm:h-[50px] md:h-[80px] w-[160px] sm:w-[200px] md:w-[280px] overflow-hidden">
             <motion.div

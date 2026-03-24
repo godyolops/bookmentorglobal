@@ -64,7 +64,7 @@ const Stats = () => {
             key={item.label}
             className="flex-1 min-w-[150px] border-l border-subtle pl-8"
           >
-            <div className="text-fg text-5xl font-black mb-1">
+            <div className="text-5xl text-[#9d48f0] font-black mb-1">
               {counts[index]}
               {item.suffix}
             </div>
