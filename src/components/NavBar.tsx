@@ -38,9 +38,9 @@ const NavBar = () => {
           <img
             src={logo}
             alt="BookMentor Global logo"
-            className="h-12 w-12 object-contain"
+            className="h-12 w-12 md:h-16 md:w-16 object-contain"
           />
-          <div className="h-12 flex items-center leading-none">
+          <div className="h-12 md:h-16 flex items-center leading-none">
             <span>
               BookMentor <span className="text-[#9d48f0]">Global</span>
             </span>
