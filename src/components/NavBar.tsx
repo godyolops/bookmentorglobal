@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { Menu, Moon, Sun } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -32,10 +33,18 @@ const NavBar = () => {
         {/* Logo */}
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-1 font-bold text-lg md:text-xl text-fg hover:opacity-80 transition-opacity whitespace-nowrap"
+          className="flex items-center gap-2 font-bold text-lg md:text-xl text-fg hover:opacity-80 transition-opacity whitespace-nowrap"
         >
-          <span>BookMentor</span>
-          <span className="text-[#9d48f0]">Global</span>
+          <img
+            src={logo}
+            alt="BookMentor Global logo"
+            className="h-12 w-12 object-contain"
+          />
+          <div className="h-12 flex items-center leading-none">
+            <span>
+              BookMentor <span className="text-[#9d48f0]">Global</span>
+            </span>
+          </div>
         </button>
 
         {/* Action Items */}
