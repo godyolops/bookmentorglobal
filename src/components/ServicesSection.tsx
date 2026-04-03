@@ -10,12 +10,9 @@ const cards = [
   {
     title: "Website Development",
     descriptions: {
-      Basic:
-        "Launch a clean, conversion-ready site with core pages, responsive layout, and clear calls to action.",
-      Deluxe:
-        "Add custom sections, stronger UX flow, and on-page SEO setup to improve visibility and lead capture.",
-      Premium:
-        "Build a high-performance website experience with advanced integrations, optimization, and growth-focused architecture.",
+      Basic: "Website development with three informational pages.",
+      Deluxe: "Website with three pages and an online checkout option.",
+      Premium: "Website with online checkout and social media integration.",
     },
     color: "#C084FC",
     img: "https://images.unsplash.com/photo-1546776310-eef45dd6d63c?w=800",
@@ -23,12 +20,9 @@ const cards = [
   {
     title: "Email Marketing",
     descriptions: {
-      Basic:
-        "Set up foundational campaigns and simple automations to start nurturing leads consistently.",
-      Deluxe:
-        "Create segmented sequences with better copywriting and design to improve open and click-through rates.",
-      Premium:
-        "Run a full-funnel email system with lifecycle automations, A/B testing, and revenue-focused reporting.",
+      Basic: "Up to 4,500 contacts.",
+      Deluxe: "Up to 8,000 contacts.",
+      Premium: "Up to 15,000 contacts.",
     },
     color: "#A855F7",
     img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800",
@@ -37,11 +31,10 @@ const cards = [
     title: "Social Media Management",
     descriptions: {
       Basic:
-        "Maintain a consistent posting schedule with branded content and basic engagement handling.",
+        "Three platforms: posting, messaging, and inquiries; one-month plan.",
       Deluxe:
-        "Strengthen growth with strategic content planning, deeper community engagement, and performance reviews.",
-      Premium:
-        "Scale your social presence with campaign-led content, proactive community management, and KPI-driven optimization.",
+        "Five platforms: posting, messaging, and inquiries; one-month plan.",
+      Premium: "Five platforms, with email marketing for 2,000 contacts.",
     },
     color: "#94a3b8",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
@@ -51,9 +44,9 @@ const cards = [
 type TierName = "Basic" | "Deluxe" | "Premium";
 
 const packageTiers = [
-  { name: "Basic" as TierName, description: "Starter plan" },
-  { name: "Deluxe" as TierName, description: "Scale support" },
-  { name: "Premium" as TierName, description: "Full growth engine" },
+  { name: "Basic" as TierName },
+  { name: "Deluxe" as TierName },
+  { name: "Premium" as TierName },
 ];
 
 const StackingSlider = () => {
@@ -160,9 +153,6 @@ const StackingSlider = () => {
                     >
                       <span className="block text-[10px] md:text-xs">
                         {tier.name}
-                      </span>
-                      <span className="block text-[8px] md:text-[9px] font-medium text-white/85">
-                        {tier.description}
                       </span>
                     </button>
                   ))}
