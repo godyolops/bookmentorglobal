@@ -6,7 +6,24 @@ import { ArrowUpRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const cards = [
+type TierName = "Basic" | "Deluxe" | "Premium";
+
+type ServiceCard = {
+  title: string;
+  color: string;
+  img: string;
+  descriptions?: Record<TierName, string>;
+  description?: string;
+};
+
+const cards: ServiceCard[] = [
+  {
+    title: "60 Second Video",
+    description:
+      "Making of a 60-second video for publishing on YouTube or other video platforms of your choosing.",
+    color: "#0ea5e9",
+    img: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=900",
+  },
   {
     title: "Website Development",
     descriptions: {
@@ -15,7 +32,7 @@ const cards = [
       Premium: "Website with online checkout and social media integration.",
     },
     color: "#C084FC",
-    img: "https://images.unsplash.com/photo-1546776310-eef45dd6d63c?w=800",
+    img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=900",
   },
   {
     title: "Email Marketing",
@@ -25,7 +42,7 @@ const cards = [
       Premium: "Up to 15,000 contacts.",
     },
     color: "#A855F7",
-    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800",
+    img: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=900",
   },
   {
     title: "Social Media Management",
@@ -37,11 +54,16 @@ const cards = [
       Premium: "Five platforms, with email marketing for 2,000 contacts.",
     },
     color: "#94a3b8",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=900",
+  },
+  {
+    title: "Prestige Plan",
+    description:
+      "Combo bundle of all products: 60-second video, premium website development, email marketing, and Social Media Management.",
+    color: "#f59e0b",
+    img: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=900",
   },
 ];
-
-type TierName = "Basic" | "Deluxe" | "Premium";
 
 const packageTiers = [
   { name: "Basic" as TierName },
@@ -133,33 +155,41 @@ const StackingSlider = () => {
                   ))}
                 </h2>
 
-                <div
-                  className="flex flex-wrap gap-2"
-                  role="tablist"
-                  aria-label="Package tiers"
-                >
-                  {packageTiers.map((tier) => (
-                    <button
-                      type="button"
-                      key={tier.name}
-                      role="tab"
-                      aria-selected={activeTier === tier.name}
-                      onClick={() => setActiveTier(tier.name)}
-                      className={`px-3 md:px-5 py-1.5 md:py-2 rounded-full border text-white text-[9px] md:text-[10px] leading-tight transition-all duration-300 ${
-                        activeTier === tier.name
-                          ? "border-white bg-white/25 shadow-lg font-extrabold"
-                          : "border-white/20 bg-white/10 font-bold hover:bg-white/15"
-                      }`}
-                    >
-                      <span className="block text-[10px] md:text-xs">
-                        {tier.name}
-                      </span>
-                    </button>
-                  ))}
-                </div>
+                {card.descriptions ? (
+                  <div
+                    className="flex flex-wrap gap-2"
+                    role="tablist"
+                    aria-label="Package tiers"
+                  >
+                    {packageTiers.map((tier) => (
+                      <button
+                        type="button"
+                        key={tier.name}
+                        role="tab"
+                        aria-selected={activeTier === tier.name}
+                        onClick={() => setActiveTier(tier.name)}
+                        className={`px-3 md:px-5 py-1.5 md:py-2 rounded-full border text-white text-[9px] md:text-[10px] leading-tight transition-all duration-300 ${
+                          activeTier === tier.name
+                            ? "border-white bg-white/25 shadow-lg font-extrabold"
+                            : "border-white/20 bg-white/10 font-bold hover:bg-white/15"
+                        }`}
+                      >
+                        <span className="block text-[10px] md:text-xs">
+                          {tier.name}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-[10px] md:text-xs font-extrabold uppercase tracking-wide text-white">
+                    Prestige Plan
+                  </div>
+                )}
 
                 <p className="max-w-md text-white/90 text-sm md:text-lg font-medium leading-relaxed">
-                  {card.descriptions[activeTier]}
+                  {card.descriptions
+                    ? card.descriptions[activeTier]
+                    : card.description}
                 </p>
               </div>
 
