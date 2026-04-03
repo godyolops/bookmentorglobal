@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -8,31 +8,58 @@ gsap.registerPlugin(ScrollTrigger);
 
 const cards = [
   {
-    title: "Social Strategy & Positioning",
-    description:
-      "Define your audience, content pillars, and channel mix so every post supports measurable brand goals.",
+    title: "Website Development",
+    descriptions: {
+      Basic:
+        "Launch a clean, conversion-ready site with core pages, responsive layout, and clear calls to action.",
+      Deluxe:
+        "Add custom sections, stronger UX flow, and on-page SEO setup to improve visibility and lead capture.",
+      Premium:
+        "Build a high-performance website experience with advanced integrations, optimization, and growth-focused architecture.",
+    },
     color: "#C084FC",
     img: "https://images.unsplash.com/photo-1546776310-eef45dd6d63c?w=800",
   },
   {
-    title: "Content Planning & Production",
-    description:
-      "Build monthly content calendars, high-converting creatives, and short-form videos tailored to each platform.",
+    title: "Email Marketing",
+    descriptions: {
+      Basic:
+        "Set up foundational campaigns and simple automations to start nurturing leads consistently.",
+      Deluxe:
+        "Create segmented sequences with better copywriting and design to improve open and click-through rates.",
+      Premium:
+        "Run a full-funnel email system with lifecycle automations, A/B testing, and revenue-focused reporting.",
+    },
     color: "#A855F7",
     img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800",
   },
   {
-    title: "Paid Social & Growth",
-    description:
-      "Scale reach and leads with campaign testing, retargeting funnels, and weekly performance optimization.",
+    title: "Social Media Management",
+    descriptions: {
+      Basic:
+        "Maintain a consistent posting schedule with branded content and basic engagement handling.",
+      Deluxe:
+        "Strengthen growth with strategic content planning, deeper community engagement, and performance reviews.",
+      Premium:
+        "Scale your social presence with campaign-led content, proactive community management, and KPI-driven optimization.",
+    },
     color: "#94a3b8",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
   },
 ];
 
+type TierName = "Basic" | "Deluxe" | "Premium";
+
+const packageTiers = [
+  { name: "Basic" as TierName, description: "Starter plan" },
+  { name: "Deluxe" as TierName, description: "Scale support" },
+  { name: "Premium" as TierName, description: "Full growth engine" },
+];
+
 const StackingSlider = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
+  const [activeTier, setActiveTier] = useState<TierName>("Basic");
 
   // GSAP Stacking Logic
   useGSAP(
@@ -113,19 +140,36 @@ const StackingSlider = () => {
                   ))}
                 </h2>
 
-                <div className="flex flex-wrap gap-2">
-                  {["Content", "Engagement", "Conversion"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 md:px-5 py-1.5 md:py-2 rounded-full border border-white/20 bg-white/10 text-white text-[9px] md:text-[10px] font-bold"
+                <div
+                  className="flex flex-wrap gap-2"
+                  role="tablist"
+                  aria-label="Package tiers"
+                >
+                  {packageTiers.map((tier) => (
+                    <button
+                      type="button"
+                      key={tier.name}
+                      role="tab"
+                      aria-selected={activeTier === tier.name}
+                      onClick={() => setActiveTier(tier.name)}
+                      className={`px-3 md:px-5 py-1.5 md:py-2 rounded-full border text-white text-[9px] md:text-[10px] leading-tight transition-all duration-300 ${
+                        activeTier === tier.name
+                          ? "border-white bg-white/25 shadow-lg font-extrabold"
+                          : "border-white/20 bg-white/10 font-bold hover:bg-white/15"
+                      }`}
                     >
-                      {tag}
-                    </span>
+                      <span className="block text-[10px] md:text-xs">
+                        {tier.name}
+                      </span>
+                      <span className="block text-[8px] md:text-[9px] font-medium text-white/85">
+                        {tier.description}
+                      </span>
+                    </button>
                   ))}
                 </div>
 
                 <p className="max-w-md text-white/90 text-sm md:text-lg font-medium leading-relaxed">
-                  {card.description}
+                  {card.descriptions[activeTier]}
                 </p>
               </div>
 

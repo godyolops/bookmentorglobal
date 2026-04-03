@@ -86,46 +86,6 @@ const App: React.FC = () => {
       <StatsSection />
       <ServicesSection />
 
-      {/* Portfolio Grid */}
-      <section className="pb-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-10 md:mb-20">
-            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black mb-6">
-              Author Success Stories
-            </h2>
-            <div className="h-2 w-24 bg-purple-600 rounded-full" />
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {projects.map((p, i) => (
-              <ProjectCard key={i} {...p} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="pb-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-            <ServiceCard
-              icon={Target}
-              title="Author Positioning"
-              desc="Define your unique author voice, audience, and market angle before you publish."
-            />
-            <ServiceCard
-              icon={Mail}
-              title="Manuscript Mentoring"
-              desc="Get chapter-level feedback, story flow guidance, and a clear editing roadmap."
-            />
-            <ServiceCard
-              icon={Palette}
-              title="Launch Campaigns"
-              desc="Build pre-launch buzz, review momentum, and post-launch visibility that lasts."
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="py-16 md:py-32 px-6 text-center border-t border-subtle">
         <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-8 md:mb-12">
