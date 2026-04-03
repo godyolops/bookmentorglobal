@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import HeroSection from "./components/HeroSection";
-import StatsSection from "./components/StatsSection";
+// import StatsSection from "./components/StatsSection";
 import ServicesSection from "./components/ServicesSection";
 
 const App: React.FC = () => {
@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <div>
       <HeroSection />
-      <StatsSection />
+      {/* <StatsSection /> */}
       <ServicesSection />
 
       {/* Footer */}
