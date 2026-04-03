@@ -14,6 +14,7 @@ type ServiceCard = {
   img: string;
   descriptions?: Record<TierName, string>;
   description?: string;
+  badgeLabel?: string;
 };
 
 const cards: ServiceCard[] = [
@@ -60,6 +61,7 @@ const cards: ServiceCard[] = [
     title: "Prestige Plan",
     description:
       "Combo bundle of all products: 60-second video, premium website development, email marketing, and Social Media Management.",
+    badgeLabel: "Prestige Plan",
     color: "#f59e0b",
     img: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=900",
   },
@@ -180,11 +182,11 @@ const StackingSlider = () => {
                       </button>
                     ))}
                   </div>
-                ) : (
+                ) : card.badgeLabel ? (
                   <div className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-[10px] md:text-xs font-extrabold uppercase tracking-wide text-white">
-                    Prestige Plan
+                    {card.badgeLabel}
                   </div>
-                )}
+                ) : null}
 
                 <p className="max-w-md text-white/90 text-sm md:text-lg font-medium leading-relaxed">
                   {card.descriptions
