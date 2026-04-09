@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { Phone, Mail, Facebook, Instagram, Twitter } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram } from "lucide-react";
+import { fbUrl, instaUrl, phoneumber } from "../constants/footer";
 
 const SiteFooter = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const SiteFooter = () => {
             <ul className="space-y-3 text-sm text-muted">
               <li>
                 <button
-                  onClick={() => navigate("/")}
+                  onClick={() => navigate}
                   className="hover:text-purple-600 transition-colors"
                 >
                   Home
@@ -60,7 +61,7 @@ const SiteFooter = () => {
                   className="inline-flex items-center gap-2 hover:text-purple-600 transition-colors"
                 >
                   <Phone size={14} />
-                  +1 555 010 1000
+                  {phoneumber}
                 </a>
               </li>
               <li>
@@ -82,7 +83,7 @@ const SiteFooter = () => {
             </h3>
             <div className="flex items-center gap-3">
               <a
-                href="https://facebook.com"
+                href={fbUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -91,22 +92,13 @@ const SiteFooter = () => {
                 <Facebook size={15} />
               </a>
               <a
-                href="https://instagram.com"
+                href={instaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-subtle bg-[var(--color-bg)] text-fg hover:border-purple-600 hover:text-purple-600 transition-colors"
               >
                 <Instagram size={15} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter / X"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-subtle bg-[var(--color-bg)] text-fg hover:border-purple-600 hover:text-purple-600 transition-colors"
-              >
-                <Twitter size={15} />
               </a>
             </div>
           </div>

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { target: 250, suffix: "+", label: "Authors" },
-  { target: 40, suffix: "+", label: "Countries" },
-  { target: 12, suffix: "+", label: "Genres" },
+  { target: 50, suffix: "+", label: "Authors" },
+  { target: 40, suffix: "+", label: "States" },
+  { target: 10, suffix: "+", label: "Genres" },
   { target: 94, suffix: "%", label: "Goal Hit" },
 ];
 
