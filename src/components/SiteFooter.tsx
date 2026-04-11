@@ -1,5 +1,5 @@
+import { Facebook, Instagram, Mail, Phone } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { Phone, Mail, Facebook, Instagram } from "lucide-react";
 import { fbUrl, instaUrl, phoneumber } from "../constants/footer";
 
 const SiteFooter = () => {
