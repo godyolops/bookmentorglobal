@@ -136,7 +136,7 @@ export const SixtySecondVideo = () => {
       </section>
 
       {/* Landscape Info Section (Matching your Footer Card style) */}
-      <section className="pt-16 px-6 max-w-5xl mx-auto text-center">
+      <section className="px-6 max-w-5xl mx-auto text-center">
         <div className="p-12 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden transition-colors duration-1000">
           <h3 className="text-2xl md:text-3xl font-bold mb-6 italic tracking-tight">
             Here's how a 60-sec ad will look like on a desktop.
